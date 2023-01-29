@@ -1,9 +1,9 @@
-import { getAllStarships } from "../../services/sw-api";
 import { useState, useEffect } from "react";
+import { getAllStarships } from "../../services/sw-api";
 import { Link } from "react-router-dom";
 
 const StarshipList = () => {
-  const [starshipList, setStarshipList] = useState([])
+  const [starshipsList, setStarshipList] = useState([])
 
   useEffect(() => {
     const fetchStarshipList = async () => {
@@ -15,16 +15,22 @@ const StarshipList = () => {
 
   return ( 
     <>
-      <h2>Starship list</h2>
-      {starshipList.map(starship =>
-        <ul>
-          <div key={starship.index}>
-            <Link to='/starship' state={{starship}} key={starship.name}>
-              {starship.name}
-            </Link>
-          </div>
-        </ul>
-      )}
+      <h1 className="title">STAR WARS STARSHiPS</h1>
+      {starshipsList.length ?
+      <>
+        <div className="body-div">
+          {starshipsList.map(starship => 
+            <div key={starship.name} className='starship-div'>
+              <Link to='/starship-details' state={{starship}} className='starship-link'>{starship.name}</Link>
+            </div>
+            )}
+        </div>
+      </>
+      :
+      <>
+        <h4>Loading Starships...</h4>
+      </>  
+    }
     </>
   );
 }
