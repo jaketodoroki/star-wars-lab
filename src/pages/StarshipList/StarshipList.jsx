@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getAllStarships } from "../../services/sw-api";
 import { Link } from "react-router-dom";
+import './StarshipList.css'
 
 const StarshipList = () => {
   const [starshipsList, setStarshipList] = useState([])
@@ -15,7 +16,7 @@ const StarshipList = () => {
 
   return ( 
     <>
-      <h1 className="title">STAR WARS STARSHiPS</h1>
+      <h1 className="title">STAR WARS STARSHIPS</h1>
       {starshipsList.length ?
       <>
         <div className="body-div">

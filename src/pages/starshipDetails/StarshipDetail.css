@@ -1,0 +1,10 @@
+
+.starship-detail{
+  height: 50%;
+  width: 50%;
+  border: 1px solid black;
+  margin: 100px;
+  padding: 30px;
+  background-color: darkcyan;
+}
+
